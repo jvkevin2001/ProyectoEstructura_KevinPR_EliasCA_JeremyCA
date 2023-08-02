@@ -14,4 +14,14 @@ private Nodo_Pila_Ingrediente siguiente;
         this.siguiente = null;
     }
 
+//getter
+    public Ingrediente getIngrediente() {
+        return ingrediente;
+    }
+    public Nodo_Pila_Ingrediente getSiguiente() {
+        return siguiente;
+    }
+    
+    
+
 }
