@@ -72,7 +72,7 @@ public class Pila_Ingrediente {
     public Ingrediente traerIngrediente(String nombre) {
         Ingrediente ingrediente = new Ingrediente();
         // Crea una copia de la pila.
-        Nodo_Pila_ingrediente aux = cima;
+        Nodo_Pila_Ingrediente aux = cima;
         // Bandera para verificar si existe el elemento a search.
 
         while (aux != null) {
@@ -88,5 +88,17 @@ public class Pila_Ingrediente {
         }
         // Retorna el valor de la bandera
         return ingrediente;
+    }
+    
+    //Mostrar Pila
+    public String mostrarPila() {
+        String mensaje = "";
+        Nodo_Pila_Ingrediente aux = cima;
+
+        while (aux != null) {
+            mensaje = mensaje + aux.getIngrediente() + " -- ";
+            aux = aux.getSiguiente();
+        }
+        return mensaje;
     }
 }
