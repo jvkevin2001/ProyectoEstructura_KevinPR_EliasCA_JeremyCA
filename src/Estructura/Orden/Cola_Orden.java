@@ -32,20 +32,13 @@ public class Cola_Orden {
 //        largo++;
 //
 //    }
-    
-    
     //Se creo el metodo que me vacia la cola//
-    
 //    public void VaciarCola() {
 //        while (tamanio() != 0) {
 //            atiendeOrden();
 //        }
 //    }
-
-    
     //Se creo el metodo que me busca la orden que estoy solicitando//
-    
-
 // public boolean search(int id) {
 //        // Crea una copia de la cola.
 //        NodoCola_Orden aux = frente;
@@ -66,11 +59,7 @@ public class Cola_Orden {
 //        // Retorna el value de la bandera.
 //        return exist;
 //    }
-
-
     //Se creo el metodo que atiende la orden//
-    
-
 //    public Orden atiendeOrden() {
 //        NodoCola_Orden aux = frente;
 //        Orden orden = aux.getOrden();
@@ -81,21 +70,14 @@ public class Cola_Orden {
 //        }
 //        return orden;
 //    }
-    
-    
     //Se creo el metodo que extrae la orden//
-    
 //    public Orden extraeOrden() {
 //        NodoCola_Orden aux = frente;
 //        Orden orden = aux.getOrden();
 //
 //        return orden;
 //    }
-    
-    
     //Se creo el metodo que me muestra la cola como String o mensaje en pantalla//
-    
-    
 // public String mostrar_cola() {
 //        String mensaje = "";
 //        if (Vacia()) {
@@ -113,31 +95,4 @@ public class Cola_Orden {
 //        }
 //        return mensaje;
 //    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
