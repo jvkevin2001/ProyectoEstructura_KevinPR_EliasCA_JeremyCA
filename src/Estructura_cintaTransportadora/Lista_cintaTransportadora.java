@@ -141,4 +141,31 @@ public class Lista_cintaTransportadora {
         
         
     }
-}
+     
+    public String mostrar_lista(){
+        String mensaje = "";
+       if(vacia()){
+           mensaje = "Cinta vacia";
+       }else{
+      
+       NodoLista_CintaTransportadora aux = cabeza;
+       while(aux != null){
+           mensaje = mensaje + aux.getIngrediente()+"\t";
+           aux = aux.getNext();
+           if(tamanio()==1){
+               aux= null;
+           }else{
+               if(aux == ultimo){
+                     mensaje = mensaje + aux.getIngrediente()+"\t";
+                      aux= null;
+               }
+           }
+          
+       }
+       }
+       return mensaje;
+   }
+
+    } 
+     
+
