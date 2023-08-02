@@ -56,6 +56,15 @@ public class Orden {
         this.finalizada = finalizada;
     }
 
+    //Se creo el toString que mu muestra en pantalla la orden//
+    
+    @Override
+    public String toString() {
+        return "Orden{" + "id=" + id + ", hamburguesa=" + hamburguesa 
+                + ", pila_ingredienteAgregado=" + pila_ingredienteAgregado 
+                + ", finalizada=" + finalizada + '}';
+    }
+
    
 
 }
