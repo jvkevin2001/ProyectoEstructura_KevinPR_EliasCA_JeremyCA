@@ -31,4 +31,20 @@ public class Pila_Ingrediente {
         }
         largo++;
     }
+    
+    //Search
+    public boolean searchAgregado(String ingrediente) {
+        Nodo_Pila_Ingrediente aux = cima;
+        boolean exist = false;
+        while (exist != true && aux != null) {
+            // Compara si el value del node es igual que al de referencia
+            if (ingrediente.equals(aux.getIngrediente().getNombre())
+                    && aux.getIngrediente().isAgregado()) {
+                exist = true;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        return exist;
+    }
 }
