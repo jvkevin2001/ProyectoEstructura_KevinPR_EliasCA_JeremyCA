@@ -93,8 +93,26 @@ public class Cola_Orden {
 //    }
     
     
+    //Se creo el metodo que me muestra la cola como String o mensaje en pantalla//
     
-
+    
+// public String mostrar_cola() {
+//        String mensaje = "";
+//        if (Vacia()) {
+//            mensaje = "";
+//        } else {
+//
+//            if (!Vacia()) {
+//
+//                NodoCola_Orden aux = frente;
+//                while (aux != null) {
+//                    mensaje = mensaje + aux.getOrden() + "\n\n";
+//                    aux = aux.getAtras();
+//                }
+//            }
+//        }
+//        return mensaje;
+//    }
 
 
 
