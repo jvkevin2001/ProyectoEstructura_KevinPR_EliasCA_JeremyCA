@@ -8,7 +8,10 @@ private int id;
 private String nombre;
 private boolean agregado;
    
-//Constructor
+//Constructores
+    public Ingrediente() {
+    }
+    
     public Ingrediente(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;

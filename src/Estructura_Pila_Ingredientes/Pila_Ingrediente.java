@@ -67,4 +67,26 @@ public class Pila_Ingrediente {
         }
         return exist;
     }
+    
+    //TraerIngrediente
+    public Ingrediente traerIngrediente(String nombre) {
+        Ingrediente ingrediente = new Ingrediente();
+        // Crea una copia de la pila.
+        Nodo_Pila_ingrediente aux = cima;
+        // Bandera para verificar si existe el elemento a search.
+
+        while (aux != null) {
+            // Compara si el value del node es igual que al de referencia
+            if (nombre.equals(aux.getIngrediente().getNombre())) {
+
+                ingrediente = aux.getIngrediente();
+                aux = null;
+            } else {
+                // Avanza al siguiente node si no lo encuentra
+                aux = aux.getSiguiente();
+            }
+        }
+        // Retorna el valor de la bandera
+        return ingrediente;
+    }
 }
