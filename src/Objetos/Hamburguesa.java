@@ -25,5 +25,17 @@ public class Hamburguesa {
         this.puntos = puntos;
     }
     
+    //Getters
+    public String getTipo() {
+        return tipo;
+    }
+    public Pila_Ingrediente getPila_ingredientes() {
+        return pila_ingredientes;
+    }
+    public int getPuntos() {
+        return puntos;
+    }
+    
+    
     
 }
