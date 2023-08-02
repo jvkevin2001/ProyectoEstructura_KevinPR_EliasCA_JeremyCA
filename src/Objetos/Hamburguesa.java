@@ -36,6 +36,15 @@ public class Hamburguesa {
         return puntos;
     }
     
+   //ToString
+
+    @Override
+    public String toString() {
+        return  tipo + " pila_ingredientes=" 
+                + pila_ingredientes + ", puntos=" + puntos + '}';
+    }
+    
+    
     
     
 }
