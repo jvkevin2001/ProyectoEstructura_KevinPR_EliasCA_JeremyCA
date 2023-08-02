@@ -91,4 +91,32 @@ public class Lista_cintaTransportadora {
         }
 
     }
+    
+    public boolean buscarId(int id) {
+        boolean exist = false;
+        boolean seguir = true;
+
+        if (cabeza.getIngrediente().getId() == id) {
+            exist = true;
+        } else {
+            if (tamanio() != 1) {
+                NodoLista_CintaTransportadora aux = cabeza;
+                
+              
+                while (aux.getIngrediente().getId() != id && seguir == true) {
+                    aux = aux.getNext();
+                    if(aux == ultimo){
+                        seguir =false;
+                    }
+
+                }
+                if (aux.getIngrediente().getId() == id) {
+                    exist = true;
+                }
+            }
+
+        }
+        return exist;
+    }
+    
 }
