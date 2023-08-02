@@ -21,7 +21,14 @@ private Nodo_Pila_Ingrediente siguiente;
     public Nodo_Pila_Ingrediente getSiguiente() {
         return siguiente;
     }
-    
+
+//Setter
+    public void setIngrediente(Ingrediente ingrediente) {
+        this.ingrediente = ingrediente;
+    }
+    public void setSiguiente(Nodo_Pila_Ingrediente siguiente) {
+        this.siguiente = siguiente;
+    }
     
 
 }
