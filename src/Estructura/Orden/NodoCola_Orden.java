@@ -17,5 +17,23 @@ public class NodoCola_Orden {
         this.atras = atras;
     }
 
+    //Se crearon los getts and setters de la clase NodoCola
+    
+    public Orden getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Orden orden) {
+        this.orden = orden;
+    }
+
+    public NodoCola_Orden getAtras() {
+        return atras;
+    }
+
+    public void setAtras(NodoCola_Orden atras) {
+        this.atras = atras;
+    }
+
     
 }
