@@ -3,58 +3,58 @@ package Estructura_cintaTransportadora;
 import Objetos.Ingrediente;
 
 public class Lista_cintaTransportadora {
-   //atributos//
+    //atributos//
+
     private NodoLista_CintaTransportadora cabeza;
     private NodoLista_CintaTransportadora ultimo;
     private int largo;
     private boolean disponible = true;
-    
-    public  boolean disponible(){
+
+    public boolean disponible() {
         return disponible;
     }
-    
-    
+
     public int tamanio() {
         return largo;
     }
-    
-    
-     public boolean vacia(){
-        boolean vacia= false;
-        if(cabeza == null){
+
+    public boolean vacia() {
+        boolean vacia = false;
+        if (cabeza == null) {
             vacia = true;
         }
         return vacia;
     }
-    
-     
-//     public void insertar(Ingrediente ingrediente) {
-//       if(disponible==true){
-//        if (cabeza == null) {
-//            cabeza = new NodoLista_CintaTransportadora(ingrediente);
-//            cabeza.setNext(cabeza);
-//         
-//            ultimo = cabeza;
-//            ultimo.setNext(cabeza);
-//        } else {
-//          NodoLista_CintaTransportadora aux = new
-//         NodoLista_CintaTransportadora(ingrediente);
-//            //ultimo setnext aux
-//            ultimo.setNext(aux);
-//           
-//            //ultimo es aux
-//            ultimo = aux;
-//            //ultimo set next cabeza
-//            ultimo.setNext(cabeza);
-//            
-//        }
-//       
-//        largo++;
-//        if (tamanio()==5){
-//            disponible =false;
-//        }
-//       }
-//    }
-     //
-     
+
+    public void insertar(Ingrediente ingrediente) {
+        if (disponible == true) {
+            if (cabeza == null) {
+                cabeza = new NodoLista_CintaTransportadora(ingrediente);
+                cabeza.setNext(cabeza);
+
+                ultimo = cabeza;
+                ultimo.setNext(cabeza);
+            } else {
+                NodoLista_CintaTransportadora aux = new 
+        NodoLista_CintaTransportadora(ingrediente);
+                //ultimo setnext aux
+                ultimo.setNext(aux);
+
+                //ultimo es aux
+                ultimo = aux;
+                //ultimo set next cabeza
+                ultimo.setNext(cabeza);
+
+            }
+
+            largo++;
+            if (tamanio() == 5) {
+                disponible = false;
+            }
+        }
+        
+        
+        
+    }
+
 }

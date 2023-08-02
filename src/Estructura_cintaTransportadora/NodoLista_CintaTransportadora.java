@@ -1,13 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Estructura_cintaTransportadora;
 
-/**
- *
- * @author jerem
- */
+import Objetos.Ingrediente;
+
 class NodoLista_CintaTransportadora {
+
+    private Ingrediente ingrediente;
+    private NodoLista_CintaTransportadora next;
+
+    public NodoLista_CintaTransportadora(Ingrediente ingrediente) {
+        this.ingrediente = ingrediente;
+    }
     
-}
+    public Ingrediente getIngrediente() {
+        return ingrediente;
+    }
+
+    public void setIngrediente(Ingrediente ingrediente) {
+        this.ingrediente = ingrediente;
+    }
+
+    public NodoLista_CintaTransportadora getNext() {
+        return next;
+    }
+
+    public void setNext(NodoLista_CintaTransportadora next) {
+        this.next = next;
+    }
+
+    
+    }
+
+
