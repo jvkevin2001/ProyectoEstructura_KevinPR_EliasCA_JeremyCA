@@ -14,4 +14,16 @@ public class Hamburguesa {
         this.puntos = puntos;
     }
     
+    //Setters
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public void setPila_ingredientes(Pila_Ingrediente pila_ingredientes) {
+        this.pila_ingredientes = pila_ingredientes;
+    }
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+    
+    
 }
