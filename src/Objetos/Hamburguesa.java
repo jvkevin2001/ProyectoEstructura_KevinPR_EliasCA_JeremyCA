@@ -1,5 +1,6 @@
-
 package Objetos;
+
+import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 
 
 public class Hamburguesa {
