@@ -83,6 +83,14 @@ public class Cola_Orden {
 //    }
     
     
+    //Se creo el metodo que extrae la orden//
+    
+//    public Orden extraeOrden() {
+//        NodoCola_Orden aux = frente;
+//        Orden orden = aux.getOrden();
+//
+//        return orden;
+//    }
     
     
     
