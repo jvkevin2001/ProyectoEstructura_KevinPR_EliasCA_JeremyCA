@@ -35,8 +35,7 @@ public class Lista_cintaTransportadora {
                 ultimo = cabeza;
                 ultimo.setNext(cabeza);
             } else {
-                NodoLista_CintaTransportadora aux = new 
-        NodoLista_CintaTransportadora(ingrediente);
+                NodoLista_CintaTransportadora aux = new NodoLista_CintaTransportadora(ingrediente);
                 //ultimo setnext aux
                 ultimo.setNext(aux);
 
@@ -52,42 +51,44 @@ public class Lista_cintaTransportadora {
                 disponible = false;
             }
         }
-        
-        
-        
+
     }
- public void clean(){
+
+    public void clean() {
         if (cabeza != null) {
-              cabeza = cabeza.getNext();
-                ultimo.setNext(cabeza);
-                if(cabeza == ultimo){
-                    cabeza = null;
-                    ultimo = null;
-                }
+            cabeza = cabeza.getNext();
+            ultimo.setNext(cabeza);
+            if (cabeza == ultimo) {
+                cabeza = null;
+                ultimo = null;
+            }
         }
     }
- public void elimina(int id) {
+
+    public void elimina(int id) {
         if (cabeza != null) {
             if (cabeza.getIngrediente().getId() == id) {
                 cabeza = cabeza.getNext();
                 ultimo.setNext(cabeza);
             } else {
                 NodoLista_CintaTransportadora aux = cabeza;
-               while(aux.getNext().getIngrediente().getId() != id){
-                   aux = aux.getNext();
-               }
-               if(aux.getNext()== ultimo){
-                   ultimo = aux;
-                   ultimo.setNext(cabeza);
-               }else{
-                   aux.setNext(aux.getNext().getNext());
-               }
-               
+                while (aux.getNext().getIngrediente().getId() != id) {
+                    aux = aux.getNext();
+                }
+                if (aux.getNext() == ultimo) {
+                    ultimo = aux;
+                    ultimo.setNext(cabeza);
+                } else {
+                    aux.setNext(aux.getNext().getNext());
+                }
+
             }
- 
-        
+            largo--;
+            disponible = false;
         }
- }
- 
- 
+        if (tamanio() == 3) {
+            disponible = true;
+        }
+
+    }
 }
