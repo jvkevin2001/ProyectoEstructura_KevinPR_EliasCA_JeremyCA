@@ -118,5 +118,17 @@ public class Lista_cintaTransportadora {
         }
         return exist;
     }
-    
+    public Ingrediente extrae (int pos){
+        Ingrediente ingrediente= null;
+        int saltos = 1;
+        NodoLista_CintaTransportadora aux = cabeza;
+        while (saltos != pos){
+          aux = aux.getNext();  
+          saltos++;
+        }
+        
+        ingrediente = aux.getIngrediente();
+      
+        return ingrediente;
+        }
 }
