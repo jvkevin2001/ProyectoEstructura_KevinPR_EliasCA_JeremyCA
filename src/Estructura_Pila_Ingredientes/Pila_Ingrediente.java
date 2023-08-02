@@ -13,5 +13,10 @@ public class Pila_Ingrediente {
         return cima == null;
     }
     
+    //tamanio pila
+    public int tamanio() {
+        return this.largo;
+    }
+    
    
 }
