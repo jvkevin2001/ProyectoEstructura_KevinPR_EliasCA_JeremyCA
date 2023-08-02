@@ -28,4 +28,16 @@ public void push(Ingrediente ingrediente) {
         }
         largo++;
     }
+public String mostrarPila() {
+        String mensaje = "";
+        NodoPila_ingredienteAgregado aux = cima;
+
+        while (aux != null) {
+            mensaje = mensaje + aux.getIngrediente() + " -- ";
+            aux = aux.getSiguiente();
+        }
+
+        return mensaje;
+    }
 }
+
