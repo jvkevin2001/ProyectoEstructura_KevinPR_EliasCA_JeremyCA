@@ -15,4 +15,16 @@ private boolean agregado;
         this.agregado= false;
     }
 
+//getter
+    public int getId() {
+        return id;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public boolean isAgregado() {
+        return agregado;
+    }
+    
+
 }
