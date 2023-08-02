@@ -66,4 +66,28 @@ public class Lista_cintaTransportadora {
                 }
         }
     }
+ public void elimina(int id) {
+        if (cabeza != null) {
+            if (cabeza.getIngrediente().getId() == id) {
+                cabeza = cabeza.getNext();
+                ultimo.setNext(cabeza);
+            } else {
+                NodoLista_CintaTransportadora aux = cabeza;
+               while(aux.getNext().getIngrediente().getId() != id){
+                   aux = aux.getNext();
+               }
+               if(aux.getNext()== ultimo){
+                   ultimo = aux;
+                   ultimo.setNext(cabeza);
+               }else{
+                   aux.setNext(aux.getNext().getNext());
+               }
+               
+            }
+ 
+        
+        }
+ }
+ 
+ 
 }
