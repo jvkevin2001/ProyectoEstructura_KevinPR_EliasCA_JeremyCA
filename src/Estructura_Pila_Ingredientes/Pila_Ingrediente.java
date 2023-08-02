@@ -47,4 +47,24 @@ public class Pila_Ingrediente {
         }
         return exist;
     }
+    
+    //Existe el nodo
+    public boolean exist (String ingrediente) {
+        // Crea una copia de la pila.
+        Nodo_Pila_Ingrediente aux = cima;
+        boolean exist = false;
+        // Recorre la pila hasta llegar encontrar el nodo o llegar al final
+        // de la cola
+        while (exist != true && aux != null) {
+            // Compara si el value del node es igual que al de referencia
+            if (ingrediente.equals(aux.getIngrediente().getNombre()) ) {
+                // Cambia el valor de la bandera si lo encuentra
+                exist = true;
+            } else {
+                // Avanza al siguiente node si no lo encuentra
+                aux = aux.getSiguiente();
+            }
+        }
+        return exist;
+    }
 }
