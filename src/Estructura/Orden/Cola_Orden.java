@@ -42,8 +42,30 @@ public class Cola_Orden {
 //        }
 //    }
 
+    
+    //Se creo el metodo que me busca la orden que estoy solicitando//
+    
 
-
+// public boolean search(int id) {
+//        // Crea una copia de la cola.
+//        NodoCola_Orden aux = frente;
+//        // Bandera para verificar si exist el elemento a search.
+//        boolean exist = false;
+//        // Recorre la pila hasta llegar encontrar el node o llegar al final
+//        // de la pila.
+//        while (exist != true && aux != null) {
+//            // Compara si el value del node es igual que al de reference.
+//            if (id == aux.getOrden().getId()) {
+//                // Cambia el value de la bandera.
+//                exist = true;
+//            } else {
+//                // Avanza al siguiente node.
+//                aux = aux.getAtras();
+//            }
+//        }
+//        // Retorna el value de la bandera.
+//        return exist;
+//    }
 
 
 
