@@ -26,5 +26,17 @@ private boolean agregado;
         return agregado;
     }
     
+//Setter
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setAgregado(boolean agregado) {
+        this.agregado = agregado;
+    }
+    
+    
 
 }
