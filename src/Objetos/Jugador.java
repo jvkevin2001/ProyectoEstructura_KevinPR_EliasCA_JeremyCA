@@ -20,5 +20,18 @@ public class Jugador {
         this.password = password;
     }
     
+    //Getters
+    public String getId() {
+        return id;
+    }
+    public int getPuntos() {
+        return puntos;
+    }
+    public int getRecord() {
+        return record;
+    }
+    public String getPassword() {
+        return password;
+    }
     
 }
