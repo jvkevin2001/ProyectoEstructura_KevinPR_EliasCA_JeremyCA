@@ -18,5 +18,17 @@ public class Pila_Ingrediente {
         return this.largo;
     }
     
-   
+   //Push
+    public void push(Ingrediente ingrediente) {
+        Nodo_Pila_Ingrediente newNodo = new Nodo_Pila_Ingrediente();
+        newNodo.setIngrediente(ingrediente);
+
+        if (Vacia()) {
+            cima = newNodo;
+        } else {
+            newNodo.setSiguiente(cima);
+            cima = newNodo;
+        }
+        largo++;
+    }
 }
