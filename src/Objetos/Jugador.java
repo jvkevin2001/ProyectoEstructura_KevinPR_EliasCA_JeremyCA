@@ -34,4 +34,18 @@ public class Jugador {
         return password;
     }
     
+    //setters
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+    public void setRecord(int record) {
+        this.record = record;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 }
