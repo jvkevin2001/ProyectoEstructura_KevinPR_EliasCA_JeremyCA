@@ -131,4 +131,14 @@ public class Lista_cintaTransportadora {
       
         return ingrediente;
         }
+    
+    
+     public void movimientoCinta(){
+        NodoLista_CintaTransportadora aux = cabeza;
+        cabeza = cabeza.getNext();
+        ultimo.setNext(aux);
+        ultimo = aux;
+        
+        
+    }
 }
