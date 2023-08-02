@@ -37,7 +37,6 @@ public class Hamburguesa {
     }
     
    //ToString
-
     @Override
     public String toString() {
         return  tipo + " pila_ingredientes=" 
