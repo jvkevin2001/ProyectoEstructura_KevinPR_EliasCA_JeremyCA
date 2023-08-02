@@ -8,6 +8,10 @@ public class Pila_Ingrediente {
     private Nodo_Pila_Ingrediente cima; 
     private int largo;
    
+    //Metodo Vacia
+    public boolean Vacia() {
+        return cima == null;
+    }
     
    
 }
