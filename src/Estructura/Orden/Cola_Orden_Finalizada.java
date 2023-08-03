@@ -14,4 +14,9 @@ public class Cola_Orden_Finalizada {
         return largo;
     }
     
+    //Metodo Vacia
+    public boolean Vacia() {
+        return frente == null;
+    }
+    
 }
