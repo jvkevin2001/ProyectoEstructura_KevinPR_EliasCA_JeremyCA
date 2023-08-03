@@ -28,9 +28,5 @@ public class NodoCola_Orden_Finalizada {
     public NodoCola_Orden_Finalizada getAtras() {
         return atras;
     }
-    
-    
-    
-   
-   
+  
 }
