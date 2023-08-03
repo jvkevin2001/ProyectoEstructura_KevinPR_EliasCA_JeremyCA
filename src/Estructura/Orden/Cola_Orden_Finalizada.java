@@ -33,6 +33,23 @@ public class Cola_Orden_Finalizada {
         }
         largo++;
     } 
-
     
+    //Metodo Mostrar
+    public String mostrar_cola() {
+        String mensaje = "";
+        if (Vacia()) {
+            mensaje = "";
+        } else {
+
+            if (!Vacia()) {
+
+                NodoCola_Orden_Finalizada aux = frente;
+                while (aux != null) {
+                    mensaje = mensaje + aux.getOrden() + "\n\n";
+                    aux = aux.getAtras();
+                }
+            }
+        }
+        return mensaje;
+    }   
 }
