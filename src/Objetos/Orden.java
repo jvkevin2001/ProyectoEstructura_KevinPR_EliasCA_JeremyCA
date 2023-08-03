@@ -1,5 +1,7 @@
 package Objetos;
 
+import Estructura.Orden.Pila_ingredienteAgregado;
+
 public class Orden {
 
     //Creacion de la clase Orden y sus atributos//
