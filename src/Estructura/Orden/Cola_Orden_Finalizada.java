@@ -19,4 +19,20 @@ public class Cola_Orden_Finalizada {
         return frente == null;
     }
     
+    //Metodo Encola
+    public void encola(Orden orden) {
+        NodoCola_Orden_Finalizada newNodo = new NodoCola_Orden_Finalizada();
+        newNodo.setOrden(orden);
+        
+        if (Vacia()) {
+            frente = newNodo;
+            ultimo = newNodo;
+        } else {
+            ultimo.setAtras(newNodo);
+            ultimo = newNodo;
+        }
+        largo++;
+    } 
+
+    
 }
