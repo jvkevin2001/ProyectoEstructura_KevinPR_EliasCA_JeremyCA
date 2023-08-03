@@ -16,16 +16,22 @@ public class Orden {
     }
 
     //Se creo constructor lleno//
-    
-    
-    public Orden(int id, Hamburguesa hamburguesa, boolean finalizada) {
+
+    public Orden(int id, Hamburguesa hamburguesa) {
         this.id = id;
         this.hamburguesa = hamburguesa;
-        this.finalizada = finalizada;
+        this.finalizada= false;
     }
 
-   //Creacion de los getters and setters//
+    //Se creo el toString que mu muestra en pantalla la orden//
     
+    @Override
+    public String toString() {
+        return "Orden{" + "id=" + id + ", hamburguesa=" + hamburguesa 
+                + ", pila_ingredienteAgregado=" + pila_ingredienteAgregado 
+                + ", finalizada=" + finalizada + '}';
+    }
+
     public int getId() {
         return id;
     }
@@ -56,15 +62,6 @@ public class Orden {
 
     public void setFinalizada(boolean finalizada) {
         this.finalizada = finalizada;
-    }
-
-    //Se creo el toString que mu muestra en pantalla la orden//
-    
-    @Override
-    public String toString() {
-        return "Orden{" + "id=" + id + ", hamburguesa=" + hamburguesa 
-                + ", pila_ingredienteAgregado=" + pila_ingredienteAgregado 
-                + ", finalizada=" + finalizada + '}';
     }
 
    
