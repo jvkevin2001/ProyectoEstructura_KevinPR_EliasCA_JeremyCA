@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Estructura.Orden;
 
-/**
- *
- * @author Kevin
- */
+import Objetos.Orden;
+
 public class NodoCola_Orden_Finalizada {
-    
+   private Orden orden; 
+   private NodoCola_Orden_Finalizada atras;
 }
