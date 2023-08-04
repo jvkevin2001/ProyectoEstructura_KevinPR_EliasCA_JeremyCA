@@ -85,8 +85,7 @@ public class GUIMenu extends javax.swing.JFrame {
     }
 
     
-    //Este metodo me muestra la cinta transportadora y lo que esta 
-    //adentro de ella//
+    //Este muestra la cinta  para el juego//
     
     
     public void mostrarCinta() {
@@ -114,7 +113,28 @@ public class GUIMenu extends javax.swing.JFrame {
     }
     
     
+    //Muestra la cinta al profesor// 
     
+     public void mostrarCinta2() {
+
+//        txtCinta.setText(lista_cinta.mostrar_lista());
+        btn_1.setText(lista_cinta.extrae(1).getNombre() + lista_cinta.extrae(1).getId());
+        btn_2.setText(lista_cinta.extrae(2).getNombre() + lista_cinta.extrae(2).getId());
+        btn_3.setText(lista_cinta.extrae(3).getNombre() + lista_cinta.extrae(3).getId());
+
+        if (lista_cinta.tamanio() == 3) {
+            btn_4.setText("");
+            btn_5.setText("");
+        } else if (lista_cinta.tamanio() == 4) {
+            btn_4.setText(lista_cinta.extrae(4).getNombre() + lista_cinta.extrae(4).getId());
+            btn_5.setText("");
+        } else {
+
+            btn_4.setText(lista_cinta.extrae(4).getNombre() + lista_cinta.extrae(4).getId());
+            btn_5.setText(lista_cinta.extrae(5).getNombre() + lista_cinta.extrae(5).getId());
+
+        }
+    }
     
     
     
