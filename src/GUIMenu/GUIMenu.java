@@ -7,6 +7,7 @@ import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 import Estructura_cintaTransportadora.Lista_cintaTransportadora;
 import Objetos.Jugador;
 import java.applet.AudioClip;
+import java.util.Random;
 import javax.swing.Timer;
 
 public class GUIMenu extends javax.swing.JFrame {
@@ -41,7 +42,12 @@ public class GUIMenu extends javax.swing.JFrame {
 
     }
     
+     //Se creo el metodo que me genera un numero aleatorio con los numero que 
+    //uno le mande//
     
+    public int numAleatorio(int min, int max) {
+        return new Random().nextInt(max - min + 1) + min;
+    }
     
     
     
