@@ -6,6 +6,7 @@ import Estructura.Orden.Pila_ingredienteAgregado;
 import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 import Estructura_cintaTransportadora.Lista_cintaTransportadora;
 import Objetos.Jugador;
+import Objetos.Orden;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.util.Random;
@@ -169,7 +170,30 @@ public class GUIMenu extends javax.swing.JFrame {
     }
     
     
+     //Muestra la informacion de la orden actual//
     
+     public void mustraInfoOrdenActual() {
+        if (cola_orden.Vacia() == false) {
+            Orden orden = cola_orden.extraeOrden();
+            txt_ordenActual.setText("" + orden.getId());
+            txt_IngRestantes.setText("" + (orden.getHamburguesa()
+                    .getPila_ingredientes().tamanio() - ingAgregadoOrden));
+        }
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     
     
     
