@@ -1,5 +1,11 @@
 package GUIMenu;
 
+import Estructura.Orden.Cola_Orden;
+import Estructura.Orden.Cola_Orden_Finalizada;
+import Estructura.Orden.Pila_ingredienteAgregado;
+import Estructura_Pila_Ingredientes.Pila_Ingrediente;
+import Estructura_cintaTransportadora.Lista_cintaTransportadora;
+import Objetos.Jugador;
 import java.applet.AudioClip;
 import javax.swing.Timer;
 
@@ -24,6 +30,32 @@ public class GUIMenu extends javax.swing.JFrame {
     private int segundos = 0;
     private int milisegundos = 0;
 
+    
+    
+    //Se creo el metodo que me muestra la informacion del jugador//
+    
+    public void mostrarInfoJugador() {
+        txt_id.setText(jugador.getId());
+        txt_record.setText("" + jugador.getRecord());
+        txt_contra.setText(jugador.getPassword());
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public GUIMenu() {
         initComponents();
 
@@ -607,6 +639,15 @@ public class GUIMenu extends javax.swing.JFrame {
             }
         });
     }
+    
+     //Inicializamos las clases correspondientes
+    Cola_Orden cola_orden = new Cola_Orden();
+    Lista_cintaTransportadora lista_cinta = new Lista_cintaTransportadora();
+    Jugador jugador = new Jugador();
+    Pila_Ingrediente pila_ingrediente = new Pila_Ingrediente();
+    Pila_ingredienteAgregado pilaIngAgregado = new Pila_ingredienteAgregado();
+    Cola_Orden_Finalizada OrdenFinalizada = new Cola_Orden_Finalizada();
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> box_color;
