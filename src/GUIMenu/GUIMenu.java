@@ -137,6 +137,18 @@ public class GUIMenu extends javax.swing.JFrame {
     }
     
     
+     //Este metodo me muestra las ordenes//
+     
+     public void mostrarOrdenes() {
+        if (!cola_orden.Vacia()) {
+            txt_pantalla.setText(cola_orden.mostrar_cola());
+        } else {
+            txt_pantalla.setText("");
+            txt_ordenActual.setText("no hay ordenes");
+            System.out.println(cola_orden.mostrar_cola());
+        }
+
+    }
     
     
     
@@ -171,7 +183,7 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_Jugar = new javax.swing.JButton();
         btn_Reiniciar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_pantalla = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txt_puntos = new javax.swing.JLabel();
@@ -290,9 +302,9 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_Reiniciar.setText("Reiniciar");
         btn_Reiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txt_pantalla.setColumns(20);
+        txt_pantalla.setRows(5);
+        jScrollPane1.setViewportView(txt_pantalla);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("0m: 0s : 0ms");
@@ -785,7 +797,6 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel label_foto;
     private javax.swing.JSpinner spinner_minutos;
     private javax.swing.JLabel txt_IngRestantes;
@@ -794,6 +805,7 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JLabel txt_id;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_ordenActual;
+    private javax.swing.JTextArea txt_pantalla;
     private javax.swing.JTextField txt_pass;
     private javax.swing.JLabel txt_puntos;
     private javax.swing.JLabel txt_record;
