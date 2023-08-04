@@ -72,8 +72,18 @@ public class GUIMenu extends javax.swing.JFrame {
 
     }
     
+    //Este metodo me limpia la informacion que esta adentro de los botones//
     
     
+    public void limpiar_botones() {
+
+        btn_1.setText("");
+        btn_2.setText("");
+        btn_3.setText("");
+        btn_4.setText("");
+        btn_5.setText("");
+    }
+
     
     
     
