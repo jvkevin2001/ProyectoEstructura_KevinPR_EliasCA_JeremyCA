@@ -7,6 +7,7 @@ import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 import Estructura_cintaTransportadora.Lista_cintaTransportadora;
 import Objetos.Jugador;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.util.Random;
 import javax.swing.Timer;
 
@@ -50,6 +51,26 @@ public class GUIMenu extends javax.swing.JFrame {
     }
     
     
+     //Se creo el metodo color botones que necesita de un color para que pueda 
+    //funcionar//
+    
+    public void color_botones(String color) {
+
+        if (color == "null") {
+            btn_1.setBackground(null);
+            btn_2.setBackground(null);
+            btn_3.setBackground(null);
+            btn_4.setBackground(null);
+            btn_5.setBackground(null);
+        } else {
+            btn_1.setBackground(Color.decode(color));
+            btn_2.setBackground(Color.decode(color));
+            btn_3.setBackground(Color.decode(color));
+            btn_4.setBackground(Color.decode(color));
+            btn_5.setBackground(Color.decode(color));
+        }
+
+    }
     
     
     
