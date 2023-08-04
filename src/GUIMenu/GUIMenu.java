@@ -152,7 +152,21 @@ public class GUIMenu extends javax.swing.JFrame {
     
     
     
-    
+    //Metodo que genera un id del 1 al 100//
+     
+     public int generaId() {
+        int id_ing = numAleatorio(1, 100);
+        if (lista_cinta.vacia() == true) {
+            id_ing = numAleatorio(1, 100);
+        } else {
+            while (lista_cinta.buscarId(id_ing) == true) {
+                id_ing = numAleatorio(1, 100);
+            }
+
+        }
+
+        return id_ing;
+    }
     
     
     
