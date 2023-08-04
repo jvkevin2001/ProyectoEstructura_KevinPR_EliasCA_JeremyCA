@@ -6,6 +6,7 @@ import Estructura.Orden.Pila_ingredienteAgregado;
 import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 import Estructura_cintaTransportadora.Lista_cintaTransportadora;
 import Objetos.Hamburguesa;
+import Objetos.Ingrediente;
 import Objetos.Jugador;
 import Objetos.Orden;
 import java.applet.AudioClip;
@@ -205,7 +206,29 @@ public class GUIMenu extends javax.swing.JFrame {
     }
      
      
+    //Metodo que me crea un Ingrediente//
      
+     public Ingrediente creacionIngrediente() {
+        String nombre_Ing = "";
+
+        int tipoIngrediente = numAleatorio(1, 4);
+        if (tipoIngrediente == 1) {
+            nombre_Ing = "pan";
+
+        } else if (tipoIngrediente == 2) {
+            nombre_Ing = "carne";
+
+        } else if (tipoIngrediente == 3) {
+            nombre_Ing = "queso";
+
+        } else {
+            nombre_Ing = "lechuga";
+
+        }
+        Ingrediente ingrediente = new Ingrediente(generaId(), nombre_Ing);
+
+        return ingrediente;
+    }
      
      
      
