@@ -5,6 +5,7 @@ import Estructura.Orden.Cola_Orden_Finalizada;
 import Estructura.Orden.Pila_ingredienteAgregado;
 import Estructura_Pila_Ingredientes.Pila_Ingrediente;
 import Estructura_cintaTransportadora.Lista_cintaTransportadora;
+import Objetos.Hamburguesa;
 import Objetos.Jugador;
 import Objetos.Orden;
 import java.applet.AudioClip;
@@ -181,9 +182,27 @@ public class GUIMenu extends javax.swing.JFrame {
         }
     }
      
+     //Metodo que me cambia la orden//
      
-     
-     
+     public void cambioDeOrden() {
+        if (cola_orden.Vacia() == false) {
+            Orden orden = cola_orden.extraeOrden();
+            mustraInfoOrdenActual();
+            if (ingAgregadoOrden == orden.getHamburguesa().getPila_ingredientes().tamanio()) {
+                orden = cola_orden.atiendeOrden();
+                orden.setFinalizada(true);
+                OrdenFinalizada.encola(orden);
+                txt_ordenFinalizada.setText(OrdenFinalizada.mostrar_cola());
+                Hamburguesa hamburguesa = orden.getHamburguesa();
+                int puntos = hamburguesa.getPuntos();
+                jugador.setPuntos(jugador.getPuntos() + puntos);
+                txt_puntos.setText("" + jugador.getPuntos());
+                mostrarOrdenes();
+                ingAgregadoOrden = 0;
+                mustraInfoOrdenActual();
+            }
+        }
+    }
      
      
      
@@ -248,6 +267,8 @@ public class GUIMenu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txt_ordenFinalizada = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -576,15 +597,25 @@ public class GUIMenu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Configuracion", jPanel4);
 
+        txt_ordenFinalizada.setColumns(20);
+        txt_ordenFinalizada.setRows(5);
+        jScrollPane2.setViewportView(txt_ordenFinalizada);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 817, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estructuras", jPanel5);
@@ -739,7 +770,7 @@ public class GUIMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -834,6 +865,7 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel label_foto;
     private javax.swing.JSpinner spinner_minutos;
@@ -843,6 +875,7 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JLabel txt_id;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_ordenActual;
+    private javax.swing.JTextArea txt_ordenFinalizada;
     private javax.swing.JTextArea txt_pantalla;
     private javax.swing.JTextField txt_pass;
     private javax.swing.JLabel txt_puntos;
