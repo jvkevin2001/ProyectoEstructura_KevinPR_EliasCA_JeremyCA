@@ -388,7 +388,18 @@ public class GUIMenu extends javax.swing.JFrame {
             }
 
         });
+        
+        timerOrdenes = new Timer(0, (ActionEvent e) -> {
 
+            while (cola_orden.tamanio() < 3) {
+                cola_orden.encola(creacionOrden());
+            }
+
+            mostrarOrdenes();
+
+            timerOrdenes.setDelay(20000);
+
+        });
         
         
         
