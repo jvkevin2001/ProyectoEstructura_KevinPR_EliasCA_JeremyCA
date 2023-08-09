@@ -412,11 +412,22 @@ public class GUIMenu extends javax.swing.JFrame {
             cambioDeOrden();
         });
 
-        
-        
-        
-        
+      
     }
+    
+     public void ActualizaTiempo() {
+        milisegundos++;
+        if (milisegundos == 375) {
+            milisegundos = 0;
+            segundos++;
+        }
+        if (segundos == 60) {
+            segundos = 0;
+            minutos++;
+        }
+
+    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
