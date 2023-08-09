@@ -601,6 +601,11 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_Reiniciar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_Reiniciar.setText("Reiniciar");
         btn_Reiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Reiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ReiniciarActionPerformed(evt);
+            }
+        });
 
         txt_pantalla.setColumns(20);
         txt_pantalla.setRows(5);
@@ -1094,6 +1099,15 @@ public class GUIMenu extends javax.swing.JFrame {
         mostrarInfoJugador();
                                                   
     }//GEN-LAST:event_btn_guardarInfoActionPerformed
+
+    private void btn_ReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReiniciarActionPerformed
+        cronometro.stop();
+        timerOrdenes.stop();
+        timerIngredientes.stop();
+        Reiniciar();
+        musica.stop();
+        sound = false;
+    }//GEN-LAST:event_btn_ReiniciarActionPerformed
 
     public static void main(String args[]) {
 
