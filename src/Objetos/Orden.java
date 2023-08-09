@@ -25,13 +25,7 @@ public class Orden {
 
     //Se creo el toString que mu muestra en pantalla la orden//
     
-    @Override
-    public String toString() {
-        return "Orden{" + "id=" + id + ", hamburguesa=" + hamburguesa 
-                + ", pila_ingredienteAgregado=" + pila_ingredienteAgregado 
-                + ", finalizada=" + finalizada + '}';
-    }
-
+   
     public int getId() {
         return id;
     }
@@ -64,6 +58,12 @@ public class Orden {
         this.finalizada = finalizada;
     }
 
-   
+   @Override
+    public String toString() {
+        return "Orden= " +  id + ", hamburguesa= " + hamburguesa + ", "+
+              "\n"  +  "Finalizada=" + finalizada+ " - "+
+               "pila_ingredienteAgregado=" +
+                pila_ingredienteAgregado.mostrarPila();
+    }   
 
 }

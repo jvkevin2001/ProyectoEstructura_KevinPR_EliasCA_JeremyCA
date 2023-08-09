@@ -40,11 +40,9 @@ private boolean agregado;
         this.agregado = agregado;
     }
     
-//ToString
-    @Override
+@Override
     public String toString() {
-        return "Ingrediente{" + "id=" + id + ", nombre=" + nombre + 
-                ", agregado=" + agregado + '}';
+        return nombre ;
     }
     
 
