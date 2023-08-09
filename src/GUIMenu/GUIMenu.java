@@ -17,6 +17,11 @@ import javax.swing.Timer;
 public class GUIMenu extends javax.swing.JFrame {
 
    //Se crean los atributos en la GUI//
+    private int minConfi = 5;
+     private String colorConfi = "null";
+    private boolean sound = false;
+    private boolean music = false;
+    
     
     private String url;
     private AudioClip musica;
@@ -34,6 +39,9 @@ public class GUIMenu extends javax.swing.JFrame {
     private int minutos = 0;
     private int segundos = 0;
     private int milisegundos = 0;
+    
+    //metodos//
+    
 
     
     
@@ -231,8 +239,48 @@ public class GUIMenu extends javax.swing.JFrame {
     }
      
      
+     public Orden creacionOrden() {
+        int id = numAleatorio(1, 1000);
+        Hamburguesa hamburguesa = creacionHamburguesa();
+        while (cola_orden.search(id) == true) {
+            id = numAleatorio(1, 1000);
+        }
+
+        Orden orden = new Orden(id, hamburguesa);
+
+        return orden;
+    }
      
-     
+     public Hamburguesa creacionHamburguesa() {
+
+        int tipo_hamburguesa = numAleatorio(1, 3);
+        String tipo = "";
+        int puntos = 0;
+
+        if (tipo_hamburguesa == 1) {
+            tipo = "De carne";
+            puntos = 5;
+
+        } else if (tipo_hamburguesa == 2) {
+            tipo = "Con queso";
+            puntos = 10;
+        } else {
+            tipo = "Clasica";
+            puntos = 15;
+        }
+
+        Hamburguesa hamburguesa = new Hamburguesa(tipo, puntos);
+
+//        if (tipo_hamburguesa == 1) {
+//            pilaHamburguesaCarne(hamburguesa);
+//        } else if (tipo_hamburguesa == 2) {
+//            pilaHamburguesaQueso(hamburguesa);
+//        } else {
+//            pilaHamburguesaClasica(hamburguesa);
+//        }
+
+        return hamburguesa;
+    }
      
      
      
@@ -330,6 +378,11 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_guardarInfo.setBackground(new java.awt.Color(0, 153, 153));
         btn_guardarInfo.setText("GUARDAR");
         btn_guardarInfo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_guardarInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -828,6 +881,10 @@ public class GUIMenu extends javax.swing.JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
 
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void btn_guardarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardarInfoActionPerformed
 
     public static void main(String args[]) {
 
