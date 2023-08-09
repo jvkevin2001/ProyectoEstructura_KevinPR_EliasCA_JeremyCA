@@ -271,18 +271,50 @@ public class GUIMenu extends javax.swing.JFrame {
 
         Hamburguesa hamburguesa = new Hamburguesa(tipo, puntos);
 
-//        if (tipo_hamburguesa == 1) {
-//            pilaHamburguesaCarne(hamburguesa);
-//        } else if (tipo_hamburguesa == 2) {
-//            pilaHamburguesaQueso(hamburguesa);
-//        } else {
-//            pilaHamburguesaClasica(hamburguesa);
-//        }
+        if (tipo_hamburguesa == 1) {
+            pilaHamburguesaCarne(hamburguesa);
+        } else if (tipo_hamburguesa == 2) {
+            pilaHamburguesaQueso(hamburguesa);
+        } else {
+            pilaHamburguesaClasica(hamburguesa);
+        }
 
         return hamburguesa;
     }
      
-     
+      public void pilaHamburguesaCarne(Hamburguesa hamburguesa) {
+
+        Ingrediente ingrediente1 = new Ingrediente(1, "pan");
+        Ingrediente ingrediente2 = new Ingrediente(2, "carne");
+        hamburguesa.getPila_ingredientes().push(ingrediente1);
+        hamburguesa.getPila_ingredientes().push(ingrediente2);
+
+    }
+
+    public void pilaHamburguesaQueso(Hamburguesa hamburguesa) {
+
+        Ingrediente ingrediente1 = new Ingrediente(1, "pan");
+        Ingrediente ingrediente2 = new Ingrediente(2, "carne");
+        Ingrediente ingrediente3 = new Ingrediente(3, "queso");
+        hamburguesa.getPila_ingredientes().push(ingrediente1);
+        hamburguesa.getPila_ingredientes().push(ingrediente2);
+        hamburguesa.getPila_ingredientes().push(ingrediente3);
+
+    }
+
+    public void pilaHamburguesaClasica(Hamburguesa hamburguesa) {
+
+        Ingrediente ingrediente1 = new Ingrediente(1, "pan");
+        Ingrediente ingrediente2 = new Ingrediente(2, "carne");
+        Ingrediente ingrediente3 = new Ingrediente(3, "queso");
+        Ingrediente ingrediente4 = new Ingrediente(4, "lechuga");
+        hamburguesa.getPila_ingredientes().push(ingrediente1);
+        hamburguesa.getPila_ingredientes().push(ingrediente2);
+        hamburguesa.getPila_ingredientes().push(ingrediente3);
+        hamburguesa.getPila_ingredientes().push(ingrediente4);
+
+    }
+
      
     
     
