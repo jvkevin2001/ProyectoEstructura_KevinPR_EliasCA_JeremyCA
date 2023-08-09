@@ -341,6 +341,21 @@ public class GUIMenu extends javax.swing.JFrame {
     public GUIMenu() {
         initComponents();
 
+            setLocationRelativeTo(null);
+        btn_basura.setBackground(Color.decode("#B5404C"));
+        btn_Jugar.setBackground(Color.decode("#2AD636"));
+       
+        
+        error = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/error.wav"));
+        
+        mostrarInfoJugador();
+
+        
+        
+        
+        
+        
     }
 
     @SuppressWarnings("unchecked")
