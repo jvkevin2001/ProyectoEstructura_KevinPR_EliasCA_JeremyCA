@@ -434,6 +434,15 @@ public class GUIMenu extends javax.swing.JFrame {
 
     }
 
+      public void IniciarCronometro() {
+
+        ActualizaTiempo();
+        ActualizaLabel();
+
+    }
+
+     
+     
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
