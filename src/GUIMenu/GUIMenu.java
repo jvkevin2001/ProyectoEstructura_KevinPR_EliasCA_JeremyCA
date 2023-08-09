@@ -54,6 +54,7 @@ public class GUIMenu extends javax.swing.JFrame {
         txt_record.setText("" + jugador.getRecord());
         txt_contra.setText(jugador.getPassword());
         txt_correo.setText(jugador.getCorreo());
+       
 
     }
     
@@ -102,7 +103,7 @@ public class GUIMenu extends javax.swing.JFrame {
     //Este muestra la cinta  para el juego//
     
     
-    public void mostrarCinta() {
+    public void mostrarCinta2() {
 
         if (!lista_cinta.vacia()) {
             //        txtCinta.setText(lista_cinta.mostrar_lista());
@@ -129,7 +130,7 @@ public class GUIMenu extends javax.swing.JFrame {
     
     //Muestra la cinta al profesor// 
     
-     public void mostrarCinta2() {
+     public void mostrarCinta() {
 
 //        txtCinta.setText(lista_cinta.mostrar_lista());
         btn_1.setText(lista_cinta.extrae(1).getNombre() + lista_cinta.extrae(1).getId());
@@ -198,6 +199,7 @@ public class GUIMenu extends javax.swing.JFrame {
      
      public void cambioDeOrden() {
         if (cola_orden.Vacia() == false) {
+           txt_totalHamburguesas.setText(""+OrdenFinalizada.tamanio());
             Orden orden = cola_orden.extraeOrden();
             mustraInfoOrdenActual();
             if (ingAgregadoOrden == orden.getHamburguesa().getPila_ingredientes().tamanio()) {
@@ -321,6 +323,8 @@ public class GUIMenu extends javax.swing.JFrame {
         public void eliminaCinta(int pos) {
         Ingrediente ingrediente = lista_cinta.extrae(pos);
         lista_cinta.elimina(ingrediente.getId());
+        lista_cinta.movimientoCinta();
+
         mostrarCinta();
     }
     
@@ -364,9 +368,12 @@ public class GUIMenu extends javax.swing.JFrame {
             }
 
             if (minutos == minConfi) {
-
-                musica.stop();
+                if(sound == true){
+                    musica.stop();
                 sound = false;
+                }
+
+                
                 cronometro.stop();
                 timerOrdenes.stop();
                 timerIngredientes.stop();
@@ -419,7 +426,7 @@ public class GUIMenu extends javax.swing.JFrame {
     
      public void ActualizaTiempo() {
         milisegundos++;
-        if (milisegundos == 375) {
+        if (milisegundos == 66) {
             milisegundos = 0;
             segundos++;
         }
@@ -482,13 +489,13 @@ public class GUIMenu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        check_musica = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
         spinner_minutos = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
         box_color = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        box_listaMusic = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -498,7 +505,7 @@ public class GUIMenu extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txt_record = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        txt_totalHamburguesas = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -619,12 +626,27 @@ public class GUIMenu extends javax.swing.JFrame {
 
         btn_2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_2ActionPerformed(evt);
+            }
+        });
 
         btn_3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_3ActionPerformed(evt);
+            }
+        });
 
         btn_4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_4ActionPerformed(evt);
+            }
+        });
 
         btn_5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -646,6 +668,11 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_basura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_basura.setText("BASURA");
         btn_basura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_basura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_basuraActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Ingredientes Restantes: ");
 
@@ -733,7 +760,7 @@ public class GUIMenu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(txt_ordenActual, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -751,9 +778,9 @@ public class GUIMenu extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Sonido General");
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        check_musica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                check_musicaActionPerformed(evt);
             }
         });
 
@@ -772,13 +799,18 @@ public class GUIMenu extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setText("Canciones");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zelda", " " }));
+        box_listaMusic.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        box_listaMusic.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zelda", " " }));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -797,10 +829,10 @@ public class GUIMenu extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(check_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spinner_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(box_color, 0, 92, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(box_listaMusic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -808,7 +840,7 @@ public class GUIMenu extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(check_musica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -824,7 +856,7 @@ public class GUIMenu extends javax.swing.JFrame {
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(box_listaMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -850,7 +882,7 @@ public class GUIMenu extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Configuracion", jPanel4);
@@ -873,7 +905,7 @@ public class GUIMenu extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estructuras", jPanel5);
@@ -884,9 +916,9 @@ public class GUIMenu extends javax.swing.JFrame {
         txt_record.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_record.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_totalHamburguesas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_totalHamburguesas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_totalHamburguesas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -910,7 +942,7 @@ public class GUIMenu extends javax.swing.JFrame {
                         .addGap(82, 82, 82)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_record, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txt_totalHamburguesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -931,7 +963,7 @@ public class GUIMenu extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_totalHamburguesas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -958,6 +990,11 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_refrescar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_refrescar.setText("REFRESCAR");
         btn_refrescar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_refrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_refrescarActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("ID");
 
@@ -1039,7 +1076,7 @@ public class GUIMenu extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Jugador", jPanel3);
@@ -1055,9 +1092,7 @@ public class GUIMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -1087,12 +1122,49 @@ public class GUIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_passActionPerformed
 
     private void btn_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_5ActionPerformed
+ color_botones(colorConfi);
+        if (cronometro.isRunning()) {
+            if (cola_orden.Vacia() == false) {
+                int pos = 5;
+                if (basura == true) {
 
+                    eliminaCinta(pos);
+                    basura = false;
+                } else {
+                    Ingrediente ingrediente = lista_cinta.extrae(pos);
+                    Orden orden = cola_orden.extraeOrden();
+                    if (orden.getHamburguesa().getPila_ingredientes().
+                            exist(ingrediente.getNombre()) == true) {
+                        if (orden.getHamburguesa().getPila_ingredientes().
+                                searchAgregado(ingrediente.getNombre()) == true) {
+                            btn_5.setBackground(Color.decode("#D43F3B"));
+                            error.play();
+                        } else {
+
+                            orden.getPila_ingredienteAgregado().push(ingrediente);
+                            Ingrediente ingPila = orden.getHamburguesa().getPila_ingredientes().traerIngrediente(ingrediente.getNombre());
+
+                            ingPila.setAgregado(true);
+                            ingAgregadoOrden++;
+                            cambioDeOrden();
+                            lista_cinta.elimina(ingrediente.getId());
+                            lista_cinta.movimientoCinta();
+
+                            mostrarCinta();
+                            mostrarOrdenes();
+                        }
+                    } else {
+                        error.play();
+                    }
+
+                }
+            }
+        }
     }//GEN-LAST:event_btn_5ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void check_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_musicaActionPerformed
 
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_check_musicaActionPerformed
 
     private void btn_guardarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarInfoActionPerformed
      
@@ -1110,8 +1182,11 @@ public class GUIMenu extends javax.swing.JFrame {
         timerOrdenes.stop();
         timerIngredientes.stop();
         Reiniciar();
-        musica.stop();
+        if(sound == true){
+            musica.stop();
         sound = false;
+        }
+        
     }//GEN-LAST:event_btn_ReiniciarActionPerformed
 
     private void btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_1ActionPerformed
@@ -1143,6 +1218,8 @@ public class GUIMenu extends javax.swing.JFrame {
                             ingAgregadoOrden++;
                             cambioDeOrden();
                             lista_cinta.elimina(ingrediente.getId());
+                            lista_cinta.movimientoCinta();
+
                             mostrarCinta();
                             mostrarOrdenes();
                         }
@@ -1155,6 +1232,194 @@ public class GUIMenu extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btn_1ActionPerformed
+
+    private void btn_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_2ActionPerformed
+       color_botones(colorConfi);
+        if (cronometro.isRunning()) {
+            if (cola_orden.Vacia() == false) {
+                int pos = 2;
+                if (basura == true) {
+
+                    eliminaCinta(pos);
+                    basura = false;
+                } else {
+                    Ingrediente ingrediente = lista_cinta.extrae(pos);
+                    Orden orden = cola_orden.extraeOrden();
+                    if (orden.getHamburguesa().getPila_ingredientes().
+                            exist(ingrediente.getNombre()) == true) {
+                        if (orden.getHamburguesa().getPila_ingredientes().
+                                searchAgregado(ingrediente.getNombre()) == true) {
+                            btn_2.setBackground(Color.decode("#D43F3B"));
+                            error.play();
+                        } else {
+
+                            orden.getPila_ingredienteAgregado().push(ingrediente);
+                            Ingrediente ingPila = orden.getHamburguesa().getPila_ingredientes().traerIngrediente(ingrediente.getNombre());
+
+                            ingPila.setAgregado(true);
+                            ingAgregadoOrden++;
+                            cambioDeOrden();
+                            lista_cinta.elimina(ingrediente.getId());
+                            lista_cinta.movimientoCinta();
+
+                            mostrarCinta();
+                            mostrarOrdenes();
+                        }
+                    } else {
+                        error.play();
+                    }
+
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_2ActionPerformed
+
+    private void btn_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_3ActionPerformed
+        color_botones(colorConfi);
+        if (cronometro.isRunning()) {
+            if (cola_orden.Vacia() == false) {
+                int pos = 3;
+                if (basura == true) {
+
+                    eliminaCinta(pos);
+                    basura = false;
+                } else {
+                    Ingrediente ingrediente = lista_cinta.extrae(pos);
+                    Orden orden = cola_orden.extraeOrden();
+                    if (orden.getHamburguesa().getPila_ingredientes().
+                            exist(ingrediente.getNombre()) == true) {
+                        if (orden.getHamburguesa().getPila_ingredientes().
+                                searchAgregado(ingrediente.getNombre()) == true) {
+                            btn_3.setBackground(Color.decode("#D43F3B"));
+                            error.play();
+                        } else {
+
+                            orden.getPila_ingredienteAgregado().push(ingrediente);
+                            Ingrediente ingPila = orden.getHamburguesa().getPila_ingredientes().traerIngrediente(ingrediente.getNombre());
+
+                            ingPila.setAgregado(true);
+                            ingAgregadoOrden++;
+                            cambioDeOrden();
+                            lista_cinta.elimina(ingrediente.getId());
+                            lista_cinta.movimientoCinta();
+
+                            mostrarCinta();
+                            mostrarOrdenes();
+                        }
+                    } else {
+                        error.play();
+                    }
+
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_3ActionPerformed
+
+    private void btn_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_4ActionPerformed
+          color_botones(colorConfi);
+        if (cronometro.isRunning()) {
+            if (cola_orden.Vacia() == false) {
+                int pos = 4;
+                if (basura == true) {
+
+                    eliminaCinta(pos);
+                    basura = false;
+                } else {
+                    Ingrediente ingrediente = lista_cinta.extrae(pos);
+                    Orden orden = cola_orden.extraeOrden();
+                    if (orden.getHamburguesa().getPila_ingredientes().
+                            exist(ingrediente.getNombre()) == true) {
+                        if (orden.getHamburguesa().getPila_ingredientes().
+                                searchAgregado(ingrediente.getNombre()) == true) {
+                            btn_4.setBackground(Color.decode("#D43F3B"));
+                            error.play();
+                        } else {
+
+                            orden.getPila_ingredienteAgregado().push(ingrediente);
+                            Ingrediente ingPila = orden.getHamburguesa().getPila_ingredientes().traerIngrediente(ingrediente.getNombre());
+
+                            ingPila.setAgregado(true);
+                            ingAgregadoOrden++;
+                            cambioDeOrden();
+                            lista_cinta.elimina(ingrediente.getId());
+                            lista_cinta.movimientoCinta();
+
+                            mostrarCinta();
+                            mostrarOrdenes();
+                        }
+                    } else {
+                        error.play();
+                    }
+
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_4ActionPerformed
+
+    private void btn_basuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_basuraActionPerformed
+         basura = true;
+    }//GEN-LAST:event_btn_basuraActionPerformed
+
+    private void btn_refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refrescarActionPerformed
+          mostrarInfoJugador();
+    }//GEN-LAST:event_btn_refrescarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         minConfi = (int) spinner_minutos.getValue();
+        if (check_musica.isSelected()) {
+            music = true;
+        }else{
+            music = false;
+        }
+        
+        switch (box_listaMusic.getSelectedIndex()) {
+            case 0:
+                 url = "Zelda.wav";
+                 musica = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/"+url));
+                break;
+            case 1:
+                 url = "Castigo.wav";
+                 musica = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/"+url));
+                break;
+                case 2:
+                     url = "Nieve.wav";
+                 musica = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/"+url));
+                break;
+                case 3:
+                       url = "Sunflower.wav";
+                 musica = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/"+url));
+                break;
+                case 4:
+                      url = "Kiss.wav";
+                 musica = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/Music/"+url));
+                break;
+            default:
+                throw new AssertionError();
+        }
+        switch (box_color.getSelectedIndex()) {
+            case 0:
+                colorConfi = "null";
+                color_botones(colorConfi);
+                break;
+            case 1:
+                colorConfi = "#41FA33";
+                color_botones(colorConfi);
+                break;
+            case 2:
+                colorConfi = "#33C6DB";
+                color_botones(colorConfi);
+                break;
+            case 3:
+                colorConfi = "#233CDC";
+                color_botones(colorConfi);
+                break;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -1176,6 +1441,7 @@ public class GUIMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> box_color;
+    private javax.swing.JComboBox<String> box_listaMusic;
     private javax.swing.JButton btn_1;
     private javax.swing.JButton btn_2;
     private javax.swing.JButton btn_3;
@@ -1187,9 +1453,8 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JButton btn_cambiar;
     private javax.swing.JButton btn_guardarInfo;
     private javax.swing.JButton btn_refrescar;
+    private javax.swing.JCheckBox check_musica;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1208,7 +1473,6 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1236,5 +1500,6 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txt_pass;
     private javax.swing.JLabel txt_puntos;
     private javax.swing.JLabel txt_record;
+    private javax.swing.JLabel txt_totalHamburguesas;
     // End of variables declaration//GEN-END:variables
 }
