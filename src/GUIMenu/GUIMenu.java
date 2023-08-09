@@ -636,6 +636,11 @@ public class GUIMenu extends javax.swing.JFrame {
 
         btn_1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_1ActionPerformed(evt);
+            }
+        });
 
         btn_basura.setBackground(new java.awt.Color(0, 153, 204));
         btn_basura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1108,6 +1113,48 @@ public class GUIMenu extends javax.swing.JFrame {
         musica.stop();
         sound = false;
     }//GEN-LAST:event_btn_ReiniciarActionPerformed
+
+    private void btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_1ActionPerformed
+           color_botones(colorConfi);
+        if (cronometro.isRunning()) {
+            if (cola_orden.Vacia() == false) {
+                int pos = 1;
+                if (basura == true) {
+
+                    eliminaCinta(pos);
+                    basura = false;
+                } else {
+                    Ingrediente ingrediente = lista_cinta.extrae(pos);
+                    Orden orden = cola_orden.extraeOrden();
+                    if (orden.getHamburguesa().getPila_ingredientes().
+                            exist(ingrediente.getNombre()) == true) {
+                        if (orden.getHamburguesa().getPila_ingredientes().
+                                searchAgregado(ingrediente.getNombre()) == true) {
+                            btn_1.setBackground(Color.decode("#D43F3B"));
+                            error.play();
+
+                        } else {
+
+                            orden.getPila_ingredienteAgregado().push(ingrediente);
+                            Ingrediente ingPila = orden.getHamburguesa().
+                                    getPila_ingredientes().traerIngrediente(ingrediente.getNombre());
+
+                            ingPila.setAgregado(true);
+                            ingAgregadoOrden++;
+                            cambioDeOrden();
+                            lista_cinta.elimina(ingrediente.getId());
+                            mostrarCinta();
+                            mostrarOrdenes();
+                        }
+                    } else {
+                        error.play();
+                    }
+
+                }
+            }
+
+        }
+    }//GEN-LAST:event_btn_1ActionPerformed
 
     public static void main(String args[]) {
 
