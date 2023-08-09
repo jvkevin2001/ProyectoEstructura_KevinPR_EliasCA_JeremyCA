@@ -321,7 +321,19 @@ public class GUIMenu extends javax.swing.JFrame {
         mostrarCinta();
     }
     
-    
+    public void Reiniciar() {
+        minutos = 0;
+        segundos = 0;
+        milisegundos = 0;
+        cola_orden.VaciarCola();
+        lista_cinta.clean();
+        mostrarCinta();
+        mostrarOrdenes();
+        txt_puntos.setText("0");
+        jugador.setPuntos(0);
+        ingAgregadoOrden = 0;
+        limpiar_botones();
+    }
     
     
     
