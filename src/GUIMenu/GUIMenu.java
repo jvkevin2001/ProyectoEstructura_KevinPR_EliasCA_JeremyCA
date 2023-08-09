@@ -401,6 +401,17 @@ public class GUIMenu extends javax.swing.JFrame {
 
         });
         
+             timerIngredientes = new Timer(0, (ActionEvent e) -> {
+
+            while (lista_cinta.tamanio() < 5 && lista_cinta.disponible() == true) {
+
+                lista_cinta.insertar(creacionIngrediente());
+
+            }
+            mostrarCinta();
+            cambioDeOrden();
+        });
+
         
         
         
