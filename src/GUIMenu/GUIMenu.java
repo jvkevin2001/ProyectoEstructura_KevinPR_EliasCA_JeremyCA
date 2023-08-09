@@ -353,7 +353,7 @@ public class GUIMenu extends javax.swing.JFrame {
         mostrarInfoJugador();
         
         cronometro = new Timer(0, (ActionEvent e) -> {
-      //      IniciarCronometro();
+            IniciarCronometro();
             if (sound == false && music == true) {
 
                 musica.play();
@@ -1040,7 +1040,12 @@ public class GUIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btn_guardarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarInfoActionPerformed
-        // TODO add your handling code here:
+                                                       
+
+        jugador.setId(txt_nombre.getText());
+        jugador.setPassword(txt_pass.getText());
+        mostrarInfoJugador();
+                                                  
     }//GEN-LAST:event_btn_guardarInfoActionPerformed
 
     public static void main(String args[]) {
