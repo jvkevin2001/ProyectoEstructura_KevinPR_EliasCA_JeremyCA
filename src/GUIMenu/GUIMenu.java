@@ -427,6 +427,12 @@ public class GUIMenu extends javax.swing.JFrame {
         }
 
     }
+     
+     public void ActualizaLabel() {
+        String cronometro = minutos + "m:" + segundos + "s:" + milisegundos + "ms";
+        txt_cronometro.setText(cronometro);
+
+    }
 
 
     @SuppressWarnings("unchecked")
@@ -446,7 +452,7 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_Reiniciar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_pantalla = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
+        txt_cronometro = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txt_puntos = new javax.swing.JLabel();
         btn_2 = new javax.swing.JButton();
@@ -576,8 +582,8 @@ public class GUIMenu extends javax.swing.JFrame {
         txt_pantalla.setRows(5);
         jScrollPane1.setViewportView(txt_pantalla);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("0m: 0s : 0ms");
+        txt_cronometro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txt_cronometro.setText("0m: 0s : 0ms");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Puntos");
@@ -626,7 +632,7 @@ public class GUIMenu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(87, 87, 87)
                             .addComponent(txt_Final, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -672,7 +678,7 @@ public class GUIMenu extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_puntos, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_cronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -1072,7 +1078,6 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1095,6 +1100,7 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JLabel txt_IngRestantes;
     private javax.swing.JLabel txt_contra;
     private javax.swing.JLabel txt_correo;
+    private javax.swing.JLabel txt_cronometro;
     private javax.swing.JLabel txt_id;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_ordenActual;

@@ -164,7 +164,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="txt_cronometro" min="-2" pref="158" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                                   <Component id="txt_Final" min="-2" pref="426" max="-2" attributes="0"/>
                               </Group>
@@ -220,7 +220,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txt_puntos" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel4" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Component id="txt_cronometro" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -316,7 +316,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="txt_cronometro">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
