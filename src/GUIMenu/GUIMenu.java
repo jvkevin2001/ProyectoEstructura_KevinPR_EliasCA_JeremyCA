@@ -315,7 +315,11 @@ public class GUIMenu extends javax.swing.JFrame {
 
     }
 
-     
+        public void eliminaCinta(int pos) {
+        Ingrediente ingrediente = lista_cinta.extrae(pos);
+        lista_cinta.elimina(ingrediente.getId());
+        mostrarCinta();
+    }
     
     
     
