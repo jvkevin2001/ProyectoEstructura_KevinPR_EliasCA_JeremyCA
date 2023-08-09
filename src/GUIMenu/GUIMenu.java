@@ -13,6 +13,7 @@ import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class GUIMenu extends javax.swing.JFrame {
@@ -1053,10 +1054,18 @@ public class GUIMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JugarActionPerformed
-        String url = "Zelda.wav";
-        musica = java.applet.Applet.newAudioClip(getClass()
-                .getResource("/Music/" + url));
-        musica.play();
+     txt_Final.setText("");
+        if (jugador.getId() == null || jugador.getPassword() == null) {
+            JOptionPane.showMessageDialog(null, "No puede jugar hasta que "
+                    + "este registrado");
+        } else {
+            //inicia el juego
+
+            cronometro.start();
+            timerOrdenes.start();
+            timerIngredientes.start();
+
+        }
     }//GEN-LAST:event_btn_JugarActionPerformed
 
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
