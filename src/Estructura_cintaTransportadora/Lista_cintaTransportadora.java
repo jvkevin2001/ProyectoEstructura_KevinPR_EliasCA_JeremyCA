@@ -54,15 +54,22 @@ public class Lista_cintaTransportadora {
 
     }
 
-    public void clean() {
-        if (cabeza != null) {
-            cabeza = cabeza.getNext();
-            ultimo.setNext(cabeza);
-            if (cabeza == ultimo) {
-                cabeza = null;
-                ultimo = null;
-            }
+ public void clean(){
+
+        while (cabeza != null) {
+
+              cabeza = cabeza.getNext();
+                ultimo.setNext(cabeza);
+                largo--;
+                if(cabeza == ultimo){
+                    cabeza = null;
+                    ultimo = null;
+                    largo = 0;
+                }
+
         }
+        disponible = true;
+
     }
 
     public void elimina(int id) {

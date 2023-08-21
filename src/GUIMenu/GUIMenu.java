@@ -20,6 +20,7 @@ public class GUIMenu extends javax.swing.JFrame {
 
    //Se crean los atributos en la GUI//
     private int minConfi = 5;
+    private int miliseg = 66;
      private String colorConfi = "null";
     private boolean sound = false;
     private boolean music = false;
@@ -102,8 +103,8 @@ public class GUIMenu extends javax.swing.JFrame {
     
     //Este muestra la cinta  para el juego//
     
-    
-    public void mostrarCinta2() {
+    //este mostrar es para el juego normal
+    public void mostrarCinta() {
 
         if (!lista_cinta.vacia()) {
             //        txtCinta.setText(lista_cinta.mostrar_lista());
@@ -129,9 +130,12 @@ public class GUIMenu extends javax.swing.JFrame {
     
     
     //Muestra la cinta al profesor// 
+    //este mostrar cinta es para que se vea que si se hace el movimiento de la 
+    //cinta(una posicion hacia la izquierda)
     
-     public void mostrarCinta() {
+     public void mostrarCinta2() {
 
+         if(!lista_cinta.vacia()){
 //        txtCinta.setText(lista_cinta.mostrar_lista());
         btn_1.setText(lista_cinta.extrae(1).getNombre() + lista_cinta.extrae(1).getId());
         btn_2.setText(lista_cinta.extrae(2).getNombre() + lista_cinta.extrae(2).getId());
@@ -149,6 +153,7 @@ public class GUIMenu extends javax.swing.JFrame {
             btn_5.setText(lista_cinta.extrae(5).getNombre() + lista_cinta.extrae(5).getId());
 
         }
+         }
     }
     
     
@@ -361,7 +366,7 @@ public class GUIMenu extends javax.swing.JFrame {
         cronometro = new Timer(0, (ActionEvent e) -> {
             IniciarCronometro();
             if (sound == false && music == true) {
-
+               
                 musica.play();
                 sound = true;
 
@@ -426,7 +431,7 @@ public class GUIMenu extends javax.swing.JFrame {
     
      public void ActualizaTiempo() {
         milisegundos++;
-        if (milisegundos == 66) {
+        if (milisegundos == miliseg) {
             milisegundos = 0;
             segundos++;
         }
@@ -985,6 +990,11 @@ public class GUIMenu extends javax.swing.JFrame {
         btn_cambiar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_cambiar.setText("CAMBIAR");
         btn_cambiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_cambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cambiarActionPerformed(evt);
+            }
+        });
 
         btn_refrescar.setBackground(new java.awt.Color(153, 102, 255));
         btn_refrescar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1105,7 +1115,11 @@ public class GUIMenu extends javax.swing.JFrame {
                     + "este registrado");
         } else {
             //inicia el juego
-
+            if(music == true){
+                 miliseg = 560;
+            }else{
+                  miliseg = 52;
+            }
             cronometro.start();
             timerOrdenes.start();
             timerIngredientes.start();
@@ -1420,6 +1434,10 @@ public class GUIMenu extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_cambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiarActionPerformed
+    jugador.setPassword(JOptionPane.showInputDialog("Digite la nueva contraseña"));
+    }//GEN-LAST:event_btn_cambiarActionPerformed
 
     public static void main(String args[]) {
 
